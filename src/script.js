@@ -8,8 +8,9 @@ export default class CubeCollection {
     this.words = [];
   }
 
-  start(cubes=[]) {
+  async start(cubes=[]) {
     this.arrangeCubes(cubes);
+    this.words.sort();
   }
 
   arrangeCubes(cubes=[], arrangedCubes=[]) {
@@ -36,7 +37,7 @@ export default class CubeCollection {
   buildWord(cubes=[], word="") {
     if (!cubes.length) {
       if (!word.trim().length) return                    // handle words of no length
-      
+
       if (this.words.includes(word.trim())) return;      // check for repeat
 
       const regex = new RegExp(`\\b${word.trim().toLowerCase()}\\b`);

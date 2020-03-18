@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
-      
-    </div>
-    <router-view/>
+    <button @click='start()'>Find words</button>
+    <p>{{message}}</p>
+    <p>Result count: {{results.length}}</p>
+    <span v-for='result in results' :key='result'>
+      {{result}}
+      <br />
+    </span>
   </div>
 </template>
 
@@ -13,24 +16,36 @@ import CubeCollection from './script'
 export default {
   name: 'CubeCollection',
 
-  mounted() {
-    console.log(`started searching...`);
-    const start = Date.now();
+  methods: {
+    start() {
+      this.message = `Started searching...`;
+      setTimeout(this.findWords, 10);
+    },
+    findWords() {
+      const start = Date.now();
 
-    let cubes = [['H','L','S','J','U','B'], 
-                 ['O','O','N','O','S','O'], 
-                 ['M','V','O','Y','A','O'], 
-                 ['E','E','W','' ,'' ,'' ]];
-    // let cubes = [['A',' ',' '],
-    //              ['D',' ',' '],
-    //              ['D',' ',' ']];
-    let cubeCollection = new CubeCollection();
-    cubeCollection.start(cubes);
+      let cubes = [['H','L','S','J','U','B'], 
+                  ['O','O','N','O','S','O'], 
+                  ['M','V','O','Y','A','O'], 
+                  ['E','E','W','' ,'' ,'' ]];
+      // let cubes = [['A',' ',' '],
+      //              ['D',' ',' '],
+      //              ['D',' ',' ']];
+      let cubeCollection = new CubeCollection();
+      cubeCollection.start(cubes);
 
-    const finished = Date.now();
-    console.log(`search finished in ${(finished - start) / 1000} seconds`);
+      const finished = Date.now();
+      this.message = `Search finished in ${(finished - start) / 1000} seconds`;
 
-    console.log(cubeCollection.words);
+      this.results = cubeCollection.words;
+    }
+  },
+
+  data() {
+    return {
+      message: "Click \"Find Words\" to begin",
+      results: []
+    }
   }
 }
 </script>
@@ -40,20 +55,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: start;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

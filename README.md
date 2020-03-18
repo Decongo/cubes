@@ -1,29 +1,26 @@
-# trapeze
+# Cubes
 
 ## Project setup
+This project uses npm and Vue.js. It was developed using npm version 6.13.1 and Vue.js version 3.5.5.
+
+### Clone the project to your local machine
+
+```
+git clone https://github.com/Decongo/cubes.git
+``` 
+
+You will need your Github credentials for this step.
+
+### Install dependencies
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Start dev server
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Now you can access the project through a web browser by going to localhost:8080.
