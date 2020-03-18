@@ -1,5 +1,9 @@
 # Cubes
 
+src/script.js contains the main algorithm. 
+
+App.vue contains the code that calls the functions in src/script.js. It also contains some of the test cases that I used.
+
 ## Project setup
 This project uses npm and Vue.js. It was developed using npm version 6.13.1 and Vue.js version 3.5.5.
 
